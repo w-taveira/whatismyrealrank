@@ -15,7 +15,7 @@ export default function ResultsContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const region = searchParams.get("region");
+  const region = searchParams.get("region") || "BR";
   const riotId = searchParams.get("riotId");
   const tag = searchParams.get("tag");
 
