@@ -1,186 +1,35 @@
+# What Is My Real Rank?
 
-# 🎯 What Is My Real Rank
+Aplicação web que consulta o MMR de uma conta de VALORANT e apresenta uma faixa estimada de rank a partir desse valor.
 
-A web application that calculates a Valorant player’s real MMR and maps it to the actual competitive rank, using real match data from a public API.
+## Demo
 
-The goal of this project is to demonstrate clean architecture, modern Next.js practices, and real-world API integration, not just UI rendering.
+[Acessar a aplicação](https://whatismyrealrank.vercel.app)
 
-## 🚀 Live Demo
+## O que o projeto demonstra
 
-🔗 Live Website:
-👉 https://whatismyrealrank.vercel.app/
+- Formulário para consultar jogador por Riot ID, tag e região.
+- Rota de API no Next.js para integrar com a Henrik API sem expor a chave no cliente.
+- Interface responsiva construída com React, Next.js e componentes Radix UI.
+- Transformação do MMR retornado pela integração em uma faixa de rank explicada na interface.
 
-## 🧠 Motivation
+## Stack
 
-Rank badges in competitive games don’t always reflect a player’s real skill level.
-This project was built to:
+- Next.js e React
+- TypeScript
+- Tailwind CSS e Radix UI
+- Zod
+- Henrik API
 
-Fetch real MMR data
+## Executar localmente
 
-Translate MMR into a more accurate rank
-
-Provide a clean, simple user experience
-
-Serve as a production-ready portfolio project
-
-## 🧩 Features
-
-🔍 Search Valorant players by Region + Riot ID + Tag
-
-📊 Fetch real MMR from an external API
-
-🧠 Translate MMR into competitive rank
-
-⚡ API Routes with server-side logic
-
-🧼 Clean architecture (services, domain logic, routes)
-
-🌐 Deployed and running in production
-
-## 🏗️ Tech Stack
-### Frontend
-
-Next.js 16 (App Router)
-
-React 19
-
-TypeScript
-
-Tailwind CSS
-
-shadcn/ui
-
-lucide-react
-
-### Backend
-
-Next.js API Routes
-
-Server-side services
-
-Environment variables (.env)
-
-### Dev & Tooling
-
-Git & GitHub (feature branches + merge flow)
-
-Vercel (deployment)
-
-Docker (local testing)
-
-dotenv
-
-## 🧠 Architecture Overview
-
-The project follows a separation of concerns approach:
-```
-src/
- ├── app/
- │   ├── api/
- │   │   └── player/route.ts   # API endpoint
- │   ├── page.tsx              # Landing page
- │   └── results/page.tsx      # Results page
- │
- ├── lib/
- │   ├── mmr/
- │   │   └── mmrTranslator.ts  # MMR → Rank logic
- │   └── player/
- │       ├── playerServices.ts # API communication
- │       └── types.ts          # Domain types
- │
- └── components/
-     └── ui/                   # Reusable UI components
-```
-
-### Why this structure?
-
-- Makes the code scalable
-
-- Keeps business logic isolated
-
-- Easy to test, extend, and refactor
-
-# 🔐 Environment Variables
-
-This project uses environment variables to protect sensitive data.
-
-Create a .env file:
-
-HENRIK_API_BASE_URL=https://api.henrikdev.xyz
-
-HENRIK_API_KEY=your_api_key_here
-
-
-> ⚠️ Never commit your API key.
-
----
-
-# 🧪 Local Development
-
-Clone the repository:
-
-git clone https://github.com/w-taveira/whatismyrealrank.git
-cd what-is-my-real-rank
-
-
-Install dependencies:
-
+```bash
 npm install
-
-
-Run the project:
-
 npm run dev
+```
 
+Crie um arquivo `.env.local` com as variáveis exigidas pela integração antes de iniciar a aplicação. Consulte o código da rota de API para os nomes e o formato esperados.
 
-Build and test production:
+## Observações
 
-npm run build
-npm run start
-
----
-
-## 🧠 What This Project Demonstrates
-
-- Real-world API consumption
-
-- Secure handling of environment variables
-
-- Clean architecture mindset
-
-- Modern Next.js App Router usage
-
-- Feature-based Git workflow
-
-- Production deployment with Vercel
-
-## 📌 Future Improvements
-
-- Cache API responses
-
-- Add loading & error states
-
-- Improve UI responsiveness
-
-- Add player history visualization
-
-- Rate-limit API calls
----
-
-## 👤 Author
-
-**Wellington Oliveira Guedes Taveira**
-
-- Frontend & Fullstack Developer
-
-- Focused on clean code, performance and real-world systems
-
-🔗 GitHub: https://github.com/w-taveira
-
-🔗 LinkedIn: https://linkedin.com/in/w-taveira
-
----
-
-## 🏁 Final Note
-
-This project is not about flashy UI — it’s about engineering mindset, structure, and delivery.
+O resultado depende de dados fornecidos por uma API de terceiros e a relação entre MMR e rank é uma estimativa implementada pelo projeto. Não é uma fonte oficial da Riot Games.
